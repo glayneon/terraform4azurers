@@ -5,6 +5,15 @@
 *.tfstate
 *.tfstate.*
 
+# .tfvars files
+*.tfvars
+
+# .envrc files for direnv
+.envrc
+
+# credentials for aws and azure
+credentials
+
 # Crash log files
 crash.log
 
