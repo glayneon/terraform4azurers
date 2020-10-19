@@ -1,11 +1,11 @@
 output "terraform_state_resource_group_name" {
-  value = azurerm_resource_group.cf-state-rg.name
+  value = azurerm_resource_group.tf-state-rg.name
 }
 output "terraform_state_storage_account" {
-  value = azurerm_storage_account.state-sta.name
+  value = azurerm_storage_account.storage-account.name
 }
 output "terraform_state_storage_account_key" {
-    value = azurerm_storage_account.state-sta.primary_access_key
+    value = azurerm_storage_account.storage-account.primary_access_key
 }
 output "terraform_state_storage_container_core" {
   value = azurerm_storage_container.core-container.name
@@ -26,8 +26,8 @@ locals {
 
 terraform {
   backend "azurerm" {
-  resource_group_name = ${azurerm_resource_group.cf-state-rg.name}
-  storage_account_name = ${azurerm_storage_account.state-sta.name}
+  resource_group_name = ${azurerm_resource_group.tf-state-rg.name}
+  storage_account_name = ${azurerm_storage_account.storage-account.name}
   container_name = ${azurerm_storage_container.core-container.name}
   # Name key name as you want
   key = "${var.project}-${var.env}-tfstate"

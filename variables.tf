@@ -11,9 +11,10 @@ variable "env" {
 }
 
 # region
-variable "region" {
-    type = string
-}
+variable "region" {}
+
+# tfstate resource group
+variable "tfstate_rg" {}
 
 # region
 # locals {
