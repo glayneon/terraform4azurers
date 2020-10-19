@@ -12,7 +12,6 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = ">= 2.26"
     }
   }
 }
@@ -22,7 +21,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "cf-state-rg" {
-  name     = "${lower(var.project)}-${lower(var.env)}-tfstate-rg"
+  name     = "${lower(var.project)}${lower(var.env)}-${var.region}-tfrg"
   // location = "${terraform.workspace == default ? koreacentral : japaneast}"
   location = var.region
   
